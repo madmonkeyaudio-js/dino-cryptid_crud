@@ -1,8 +1,15 @@
 <h1>This is all the Cryptids!</h1>
 
-<ul>
-    <% myCryptids.forEach(cryptid => { %>
-        <li><%= cryptid.name %>  <%= cryptid.type %></li>
+<div>
+    <% myCryptids.forEach((cryptid, index) => { %>
+        <p><%= cryptid.name %> </p>
+        <form method="POST" action="/cryptids/<%= index %>?_method=DELETE">
+            <input type="submit" value="Delete it">
+        </form>
+
+        <form method="GET" action="/cryptids/<%= index %>/edit">
+            <input type="submit" value="Edit it">
+        </form>
         <img src="<%= cryptid.img_url %>">
    <% }) %>
-</ul>
+    </div>
